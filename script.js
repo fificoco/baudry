@@ -148,15 +148,9 @@ function drawZones(center, all = false) {
 // mise en ecoute du select des agences
 // ================================================================================
 
-function preventResize() {
-  window.resizeTo(1080, 720);
-
-  window.addEventListener('resize', function () {
-    window.resizeTo(1080, 720);
-  });
-}
-
-window.onload = preventResize;
+window.addEventListener('resize', function () {
+  map.invalidateSize();
+});
 // ================================================================================
 // mise en ecoute du select des agences
 // ================================================================================

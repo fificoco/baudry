@@ -42,7 +42,7 @@ header {
     clip-path: url(#clippath);
 }
 
-#menuBurgerHover {
+#menuBurger {
     display: none;
 }
 
@@ -50,11 +50,11 @@ header {
     cursor: pointer;
 }
 
-#burgerGroup:hover #menuBurger {
+#burgerGroup:hover #menuBurgerHover {
     display: none;
 }
 
-#burgerGroup:hover #menuBurgerHover {
+#burgerGroup:hover #menuBurger {
     display: block;
 }
 
@@ -161,8 +161,11 @@ header {
 }
 
 #map {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 0;
 }
 
@@ -412,9 +415,6 @@ input[list] {
   
   /* ✅ Téléphones jusqu’à 767px */
   @media screen and (max-width: 767px) {
-    #map {
-      height: 70vh;
-    }
     .sidebar {
       width: 80vw;
       left: -85vw;
