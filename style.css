@@ -1,0 +1,467 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+header {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 5vh;
+    left: 0;
+    width: 50%;
+    padding: 1.5vh 1vw;
+    z-index: 1005;
+}
+
+.contLogo {
+    position: absolute;
+    width: 20%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cls-1 {
+    fill: none;
+}
+
+.cls-2 {
+    clip-path: url(#clippath);
+}
+
+#menuBurgerHover:hover {
+    display: none;
+}
+
+.agency-select {
+    margin: 0 auto;
+    outline: none;
+    margin: 5px 0;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #c8c8c8;
+    background: #333;
+    color: #f8f8f8;
+}
+
+.btnMenuPerso {
+    left: 1.5vw;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.218);
+    border: 1px solid rgba(0, 0, 0, 0.101);
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.btnMenuPerso:hover {
+    opacity: 1;
+}
+
+.sidebar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: 3vh auto 0;
+    top: 60px;
+    left: -300px;
+    width: 200px;
+    height: calc(100% - 60px);
+    transition: left 0.3s ease;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+}
+
+.sidebar input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+}
+
+.sidebar button.validate {
+    background: #F7C600;
+    color: white;
+    border: rgba(0, 0, 0, 0.237) 1px solid;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sidebar button.validate:hover {
+    background: #d4aa00;
+}
+
+.btnStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+    border: rgba(0, 0, 0, 0.237) 1px solid;
+    width: 70%;
+    margin: 0 auto 8px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnStyle:hover {
+    background-color: #5555557e;
+    color: white;
+}
+
+.reset,
+.validate {
+    border-radius: 15px;
+}
+
+.nav-buttons {
+    margin-top: 20px;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+#result-zone {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.resultZone-style-temp {
+    color: red;
+}
+
+.zone-panel {
+    position: fixed;
+    top: 50px;
+    right: -400px;
+    width: 350px;
+    max-height: 90vh;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.zone-panel h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#add-zone,
+#save-zones {
+    display: inline-block;
+    margin: 8px 4px 0 0;
+    padding: 8px 10px;
+    font-size: 14px;
+    background: #ddd;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#add-zone:hover,
+#save-zones:hover {
+    background: #ccc;
+}
+
+datalist option {
+    font-size: 14px;
+    color: #333;
+    padding: 4px;
+}
+
+input[list] {
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar button.reset {
+    background: #e74c3c;
+    border: rgba(0, 0, 0, 0.237) 1px solid;
+    width: 80%;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin: 8px auto 0;
+}
+
+.sidebar button.reset:hover {
+    background: #c0392b;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.zone-inputs .zone-row {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.zone-row label {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.zone-row input[type="number"] {
+    width: 70px;
+    padding: 4px;
+    font-size: 13px;
+}
+
+.zone-row input[type="color"] {
+    width: 40px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.zone-row button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    font-size: 13px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.zone-row button:hover {
+    background: #c0392b;
+}
+
+.modal-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#addZone {
+    background-color: #2980b9;
+    color: white;
+}
+
+#addZone:hover {
+    background-color: #21618c;
+}
+
+#saveZones {
+    background-color: #27ae60;
+    color: white;
+}
+
+#saveZones:hover {
+    background-color: #1e8449;
+}
+
+#resetZones {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#resetZones:hover {
+    background-color: #c0392b;
+}
+
+#closeModal {
+    background-color: #333;
+    color: white;
+}
+
+#closeModal:hover {
+    background-color: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ✅ Petit mobile (ex : iPhone SE) */
+@media screen and (max-width: 480px) {
+    .sidebar {
+      width: 90vw;
+      left: -100vw;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .validate,
+    .reset {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+    .contLogo {
+        width: 28%;
+    }
+  }
+  
+  /* ✅ Téléphones jusqu’à 767px */
+  @media screen and (max-width: 767px) {
+    #map {
+      height: 70vh;
+    }
+    .sidebar {
+      width: 80vw;
+      left: -85vw;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    #menuBurger {
+      width: 40px;
+      height: auto;
+    }
+    .contLogo {
+        width: 28%;
+    }
+  }
+  
+  /* ✅ Tablette (jusqu'à iPad Pro) */
+  @media screen and (max-width: 1024px) {
+    .sidebar {
+      width: 300px;
+      left: -320px;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .validate,
+    .reset {
+      font-size: 15px;
+    }
+    .contLogo {
+        width: 25%;
+    }
+  }
+  
+  /* ✅ Desktop classique */
+  @media screen and (max-width: 1280px) {
+    .sidebar {
+      width: 260px;
+      left: -280px;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .contLogo {
+        width: 25%;
+    }
+  }
+  
+  /* ✅ Grand écran (plus de 1280px) */
+  @media screen and (min-width: 1281px) {
+    .sidebar {
+      width: 300px;
+      left: -320px;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .contLogo {
+        width: 25%;
+    }
+  }
+  
