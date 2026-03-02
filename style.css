@@ -42,8 +42,20 @@ header {
     clip-path: url(#clippath);
 }
 
-#menuBurgerHover:hover {
+#menuBurgerHover {
     display: none;
+}
+
+#burgerGroup {
+    cursor: pointer;
+}
+
+#burgerGroup:hover #menuBurger {
+    display: none;
+}
+
+#burgerGroup:hover #menuBurgerHover {
+    display: block;
 }
 
 .agency-select {

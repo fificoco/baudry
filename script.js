@@ -78,10 +78,10 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-const menuBurger = document.getElementById('menuBurger');
+const burgerGroup = document.getElementById('burgerGroup');
 const sidebar = document.getElementById('sidebar');
 
-menuBurger.addEventListener('click', () => {
+burgerGroup.addEventListener('click', () => {
   const isOpen = sidebar.classList.toggle('open');
 
   // Ternaire : tu peux loguer, changer un attribut, etc.
